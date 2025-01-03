@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(212, 123, 7);
+}
+.headLine{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.return {
+  display: flex;
+  font-weight: bold;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.return:hover{
+  color: rgb(104, 104, 104);
+}

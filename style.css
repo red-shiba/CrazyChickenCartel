@@ -1,0 +1,373 @@
+@font-face {
+  font-family: 'Tiny5';
+  src: url(fonts/Tiny5-Regular.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url('img/10_background/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Tiny5', Arial, Helvetica, sans-serif;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 64px;
+  letter-spacing: 10px;
+  text-shadow: 20px 12px 8px rgba(0, 0, 0, 0.5);
+  color: orange;
+}
+
+.dNone {
+  display: none;
+}
+
+canvas {
+  border: black 5px solid;
+  border-radius: 5%;
+  background-color: black;
+  display: block;
+  z-index: 1;
+}
+
+.cennter {
+  justify-content: center;
+}
+
+.controleInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 24px;
+}
+
+.controleInfoWindow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  gap: 100px;
+  font-weight: bold;
+  background-color: rgba(182, 121, 8, 0.5);
+}
+
+.backButton {
+  cursor: pointer;
+}
+
+.backButton:hover{
+  color: rgb(77, 77, 77);
+}
+
+.homeBtn{
+  color: white;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.windowControles {
+  display: flex;
+  gap: 48px;
+}
+
+.controleInfo span {
+  display: flex;
+  font-weight: 900;
+  color: #000000;
+  background-color: orange;
+  border: black 5px solid;
+  border-radius: 5%;
+  padding: 24px 24px 24px 24px;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+  gap: 16px;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: orange;
+  animation: endlessHover 0.45s infinite;
+  cursor: pointer;
+}
+
+.startScreen {
+  background-image: url('img/9_intro_outro_screens/start/startscreen_1.png');
+}
+
+
+.winScreen {
+  background-image: url('img/9_intro_outro_screens/win/win_2.png');
+  background-color: black;
+}
+
+.loseScreen {
+  background-image: url('img/9_intro_outro_screens/game_over/oh\ no\ you\ lost!.png');
+  background-color: #000000;
+}
+
+.mainScreen {
+  width: 890px;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  border: black 5px solid;
+  border-radius: 5%;
+}
+
+.deviceTurn {
+  display: none;
+}
+
+.gameOverlay {
+  position: absolute;
+  flex-direction: column;
+  display: none;
+  width: 710px;
+  height: 470px;
+  justify-content: space-between;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.iconList {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.mobileButtons {
+  display: none;
+}
+
+.fullscreen {
+  display: flex;
+  align-items: flex-end;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.muteButton {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.moveLeft {
+  background-image: url('img/11_buttons/001-arrow.png');
+}
+
+.moveRight {
+  background-image: url('img/11_buttons/002-right-arrow.png');
+}
+
+.throwBottle {
+  background-image: url('img/11_buttons/004-throw.png');
+}
+
+.jump {
+  background-image: url('img/11_buttons/003-jump.png');
+}
+
+@media only screen and (max-height:820px),
+(min-aspect-ratio:1/1) and (max-width:1300px) {
+  canvas {
+      height: 100vh;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      display: block;
+  }
+
+  .fullscreen {
+      display: none;
+  }
+
+  .mainScreen {
+      height: 500px;
+      width: 100%;
+      border: none;
+      border-radius: 0%;
+  }
+
+  h1 {
+      display: none;
+  }
+
+  .content {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+  }
+
+  .controleInfo {
+      display: none;
+  }
+}
+
+@media(max-width:1370px), (min-height:1020px) {
+  .mainScreen {
+      height: 800px;
+      width: 1000px;
+  }
+
+  .controleInfo {
+      display: none;
+  }
+}
+
+@media(max-width:1280px) {
+  .mobileButtons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  .buttonPair {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .mobileButton {
+      padding: 30px;
+      border-radius: 35px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: orange;
+  }
+}
+
+@media (max-width:900px) {
+  canvas {
+      height: 100vh;
+      width: 100%;
+  }
+
+  .mainScreen {
+      height: 100%;
+      width: 90%;
+  }
+
+  .content {
+      align-items: center;
+      justify-content: center;
+      height: 75%;
+      width: 100%;
+  }
+}
+
+@media(max-height: 998px) {
+  .mainScreen {
+      height: 80%;
+
+  }
+
+  .content {
+      height: 100%;
+  }
+}
+
+
+
+@media(max-height: 700px) {
+  .mainScreen {
+      height: 100%;
+      width: 100%;
+  }
+}
+
+@media only screen and (max-width:760px) {
+  canvas {
+      width: 100%;
+  }
+
+  .mainScreen {
+      width: 100%;
+      height: 100%;
+  }
+
+  .content {
+      height: 100%;
+  }
+}
+
+@media(max-width:666px), (max-aspect-ratio:1/1.01) {
+  body {
+      background-color: grey;
+      background-image: none;
+  }
+
+  .content {
+      display: none;
+      width: 0;
+      height: 0;
+  }
+
+  canvas {
+      display: none;
+  }
+
+  h1 {
+      display: none;
+  }
+
+  .mainScreen {
+      display: none;
+  }
+
+  .deviceTurn {
+      display: block;
+  }
+}
+
+@keyframes endlessHover {
+  0% {
+      margin-top: -2px;
+      padding: 12px 32px 12px 32px;
+  }
+
+  25% {
+      margin-top: -3px;
+      padding: 13px 33px 13px 33px;
+  }
+
+  50% {
+      margin-top: -4px;
+      padding: 14px 34px 14px 34px;
+  }
+
+  75% {
+      margin-top: -3px;
+      padding: 13px 33px 13px 33px;
+  }
+
+  100% {
+      margin-top: -2px;
+      padding: 12px 32px 12px 32px;
+  }
+}
