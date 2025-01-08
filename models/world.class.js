@@ -142,7 +142,7 @@ class World {
         this.character.wakeUp();
         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100, this.character.otherDirection);
         this.throwableObject.push(bottle);
-        this.character.uesCollectables('bottle');
+        this.character.useCollectables('bottle');
         this.salsa_bottleBar.deleteFromBar();
         this.salsa_bottleBar.setPercentage(this.salsa_bottleBar.percentage);
 
@@ -160,19 +160,23 @@ class World {
     if (this.character.collectedCoins <= 5) {
       this.chooseCollectable('coin');
     }
-    if (this.character.collectedBottles <= 5) {
+    if (this.character.collectedBottles <= 4) {
       this.chooseCollectable('bottle');
     }
   }
 
   /**
-   * checks collisions of the character from above on an opponent
+   * checks collisions of the character from above on an opponent in falling state
    */
   checkCollisionsFromHeavenToEnemy() {
     this.checkCollisionFHTE = setInterval(() => {
       this.level.enemies.forEach((enemy, enemyIndex) => {
         if (enemy instanceof Chicken || enemy instanceof ChickenSmall) {
-          if (this.character.isColliding(enemy) && this.character.isAboveGround()) {
+          if (
+            this.character.isColliding(enemy) &&
+            this.character.isAboveGround() &&
+            this.character.speedY < 0
+          ) {
             this.character.jump();
             this.playMusic(this.chickenAudio, false);
             this.level.enemies.splice(enemyIndex, 1);
@@ -209,7 +213,6 @@ class World {
           if (!this.character.isAboveGround())
             this.character.hit(0);
         }
-
         this.statusBar.setPercentage(this.character.energy);
       }
     });

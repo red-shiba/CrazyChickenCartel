@@ -47,7 +47,7 @@ function init() {
 
 function checkSoundMute() {
     let soundIcon = document.getElementById('soundButton');
-    if (sound == true) {
+    if (sound) {
         soundIcon.innerHTML = renderMuteButton();
     } else {
         soundIcon.innerHTML = renderEndmuteButton();
@@ -182,7 +182,9 @@ function checkForWin() {
                     gameActive = false;
                     win = true;
                     loadEndScreen();
+                    let currentSoundMode = sound;
                     muteAllSounds();
+                    sound = currentSoundMode;
                     clearInterval(stoppingGame);
                 }, 1000);
             }
@@ -198,7 +200,9 @@ function checkForLose() {
         setTimeout(() => {
             win = false;
             loadEndScreen();
+            let currentSoundMode = sound;
             muteAllSounds();
+            sound = currentSoundMode;
             clearInterval(stoppingGame);
         }, 1000);
     }

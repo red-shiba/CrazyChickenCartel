@@ -114,12 +114,14 @@ class Character extends CollidableObject {
    * @param {object (Coin or Bottle)} obj 
    */
   collect(obj) {
-    if (obj == 'coin') {
+    if (obj === 'coin') {
       this.collectedCoins++;
       this.playObjectiveSounds(this.collectCoinSound, false);
-    } else if (obj == 'bottle') {
-      this.collectedBottles++;
-      this.playObjectiveSounds(this.collectBottleSound, false);
+    } else if (obj === 'bottle') {
+      if (this.collectedBottles < 5) {
+        this.collectedBottles++;
+        this.playObjectiveSounds(this.collectBottleSound, false);
+      }
     }
   }
 
@@ -127,7 +129,7 @@ class Character extends CollidableObject {
    * this function is for deleting uesd items
    * @param {object (coin or bottle)} obj 
    */
-  uesCollectables(obj) {
+  useCollectables(obj) {
     if (obj == 'coin') {
       this.collectedCoins--;
     } else if (obj == 'bottle') {
